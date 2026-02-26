@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+
+/* HEADER */
+header {
+    position: relative;          /* so the buttons can be positioned independently */
+    height: 80px;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;     /* keeps TANZIMA perfectly centered */
+}
+
+/* Logo styling — NO change needed */
+.logo {
+    font-family: Georgia, serif;
+    font-size: 40px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* Buttons on the right */
+.nav-right {
+    position: absolute;  /* remove from flex flow */
+    right: 40px;         /* push to right corner */
+    display: flex;
+    gap: 20px;
+}
+
+/* Buttons styling — no changes for hover or font */
+.nav-btn {
+    background: none;
+    border: 1px solid black;
+    padding: 8px 18px;
+    font-family: Georgia, serif;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.nav-btn:hover {
+    background: black;
+    color: white;
+}
+
+
+
+
+    /* CAROUSEL */
+    .carousel {
+        position: relative;
+        width: 100%;
+        height: 400px;
+        overflow: hidden;
+    }
+
+    .slides {
+        display: flex;
+        
+        transition: transform 0.6s ease-in-out;
+    }
+
+    .slides img {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        flex-shrink: 0;
+    }
+
+    /* Navigation buttons */
+    .prev, .next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0,0,0,0.5);
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        font-size: 18px;
+    }
+
+    .prev { left: 10px; }
+    .next { right: 10px; }
+
+/* WHITE BORDER */
+.about {
+    padding: 80px 10%;
+    background: #f8f8f8;
+    border-top: 2px solid #ffffff; /* Thin white border */
+}
+
+/* ABOUT CONTAINER: side-by-side layout */
+.about-container {
+    display: flex;
+    align-items: center;   /* Vertically center text with image */
+    gap: 60px;
+    flex-wrap: nowrap;     /* Prevent text from going below image */
+}
+
+/* PORTRAIT IMAGE */
+.about-image img {
+    width: 350px;         /* fixed container width */
+    height: 450px;        /* fixed container height */
+    object-fit: cover;    /* crop and fill the box */
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* ABOUT TEXT */
+.about-text {
+    max-width: 600px;
+}
+
+.about-text h2 {
+    font-family: Georgia, serif;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* RESPONSIVE: Stack vertically on small screens */
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-image img {
+        width: 100%;
+        max-width: 350px;
+        height: auto;     /* maintain aspect ratio on mobile */
+    }
+}
+
+
+    /* FOOTER */
+footer {
+    height: 120px;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;  /* space between items */
+    
+    
+}
+
+.footer-item {
+    font-family: Georgia, serif;
+    font-size: 18px;
+    color: #000000;
+    text-decoration: none;
+}
+
+.footer-item:hover {
+    color: #0077b5; /* LinkedIn blue on hover */
+}
+
+.linkedin-icon {
+    width: 24px;
+    height: 24px;
+}
+
+</style>
+</head>
+<body>
+
+<header>
+    <div class="logo">TANZIMA</div>
+
+    <div class="nav-right">
+        <button class="nav-btn" onclick="window.location.href='About.html'">About</button>
+        <button class="nav-btn" onclick="window.location.href='hardware.html'">Projects</button>
+
+    </div>
+</header>
+
+
+<section class="carousel">
+    <div class="slides" id="slides">
+    <img src="images/slide1.jpg" alt="Slide 1">
+    <img src="images/slide2.jpg" alt="Slide 2">
+    <img src="images/slide3.jpg" alt="Slide 3">
+</div>
+
+    <button class="prev" onclick="moveSlide(-1)">❮</button>
+    <button class="next" onclick="moveSlide(1)">❯</button>
+</section>
+
+<section class="about">
+    <div class="about-container">
+        
+        <div class="about-image">
+            <img src="tanzimaPortrait.jpg" alt="Tanzima Portrait">
+        </div>
+
+        <div class="about-text">
+            <h2>About Me</h2>
+            <p>
+                This is where your introduction will go. You can write about 
+                your work, your style, your creative direction, or anything 
+                you want visitors to know about you.
+            </p>
+            <p>
+                Keep it personal, professional, and aligned with your portfolio.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    <div class="footer-content">
+        <a href="mailto:your.email@example.com" class="footer-item">your.email@example.com</a>
+        <h3 class="footer-item">TANZIMA</h3>
+        <a href="https://www.linkedin.com/in/tanzimabiswas/" target="_blank" class="footer-item">
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" class="linkedin-icon">
+        </a>
+    </div>
+</footer>
+
+
+
+<script>
+    let index = 0;
+    const slides = document.getElementById('slides');
+    const totalSlides = slides.children.length;
+
+    function moveSlide(step) {
+        index += step;
+        if (index < 0) index = totalSlides - 1;
+        if (index >= totalSlides) index = 0;
+        slides.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    setInterval(() => {
+        moveSlide(1);
+    }, 5000);
+</script>
+
+
+
+
+</body>
+</html>
