@@ -2,24 +2,15 @@
 <html>
 <body>
 
-<h2>Force PDF Download on GitHub Pages</h2>
+<h2>Download PDF Example</h2>
 <button id="downloadBtn">Download PDF</button>
 
 <script>
 document.getElementById('downloadBtn').addEventListener('click', function() {
-    fetch('file.pdf') // your PDF path
-      .then(resp => resp.blob()) // get file as blob
-      .then(blob => {
-          const url = window.URL.createObjectURL(blob);
-          const a = document.createElement('a');
-          a.style.display = 'none';
-          a.href = url;
-          a.download = 'file.pdf'; // set download file name
-          document.body.appendChild(a);
-          a.click();
-          window.URL.revokeObjectURL(url);
-      })
-      .catch(() => alert('Could not download file.'));
+    const link = document.createElement('a');
+    link.href = 'file.pdf'; // path to your PDF
+    link.download = 'MyFile.pdf'; // name of the downloaded file
+    link.click();
 });
 </script>
 
